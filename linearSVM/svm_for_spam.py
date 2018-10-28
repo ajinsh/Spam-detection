@@ -85,46 +85,46 @@ model.fit(train_features, train_labels)
 test_pred = model.predict(test_features)
 
 
-# # print(classification_report(test_labels,test_pred))  
-# # print(confusion_matrix(test_labels,test_pred))  
+# print(classification_report(test_labels,test_pred))  
+# print(confusion_matrix(test_labels,test_pred))  
 
-# # print(test_labels.shape[0])
-# # print(test_pred.shape[0])
+# print(test_labels.shape[0])
+# print(test_pred.shape[0])
 
-# TP = 0
-# FP = 0
-# TN = 0
-# FN = 0
+TP = 0
+FP = 0
+TN = 0
+FN = 0
 
 
-# for i in range(test_labels.shape[0]):
-# 	if test_labels[i] == 0:
-# 		if test_labels[i] == test_pred[i]:
-# 			TP = TP + 1
-# 		else:
-# 			FN = FN + 1
-# 	else:
-# 		if test_labels[i] == test_pred[i]:
-# 			TN = TN + 1
-# 		else:
-# 			FP = FP + 1
+for i in range(test_labels.shape[0]):
+	if test_labels[i] == 0:
+		if test_labels[i] == test_pred[i]:
+			TP = TP + 1
+		else:
+			FN = FN + 1
+	else:
+		if test_labels[i] == test_pred[i]:
+			TN = TN + 1
+		else:
+			FP = FP + 1
 
-# print("Recall for non-spam emails    :",round(TP/(TP + FN),2))
-# print("Precision for non-spam emails :",round(TP/(TP + FP),2))
-# print("Recall for spam emails        :",round(TN/(TN + FP),2))
-# print("Precision for spam emails     :",round(TN/(TN + FN),2))
-# print("Accuracy:",accuracy_score(test_labels,test_pred))
+print("Recall for non-spam emails    :",round(TP/(TP + FN),2))
+print("Precision for non-spam emails :",round(TP/(TP + FP),2))
+print("Recall for spam emails        :",round(TN/(TN + FP),2))
+print("Precision for spam emails     :",round(TN/(TN + FN),2))
+print("Accuracy:",accuracy_score(test_labels,test_pred))
 
-# fpr, tpr, thresholds = roc_curve(test_labels,model.decision_function(test_features))
-# print('fpr',fpr.shape)
-# print('tpr',tpr.shape)
-# print('thresholds', thresholds.shape)
-# plt.plot(fpr,tpr)
-# plt.ylabel('True Positive Rate')
-# plt.xlabel('False Positive Rate')
-# plt.title('Receiver Operating Characterestic (ROC) Curve')
-# plt.legend()
-# plt.show()
+fpr, tpr, thresholds = roc_curve(test_labels,model.decision_function(test_features))
+print('fpr',fpr.shape)
+print('tpr',tpr.shape)
+print('thresholds', thresholds.shape)
+plt.plot(fpr,tpr)
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.title('Receiver Operating Characterestic (ROC) Curve')
+plt.legend()
+plt.show()
 
 
 # ##################################################################
@@ -174,12 +174,12 @@ for i in range(57):
 	i = i + 1
 
 
-# Plot the accuracy vs m (no. of features)
-# plt.plot(e2_tot_feat,e2_accuracy)
-# plt.ylabel('Accuracy')
-# plt.xlabel('Number of features')
-# plt.title('Experiment 2 - Accuracy vs No. of features')
-# plt.show()
+Plot the accuracy vs m (no. of features)
+plt.plot(e2_tot_feat,e2_accuracy)
+plt.ylabel('Accuracy')
+plt.xlabel('Number of features')
+plt.title('Experiment 2 - Accuracy vs No. of features')
+plt.show()
 
 
 # ##################################################################
